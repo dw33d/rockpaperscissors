@@ -4,7 +4,7 @@
 
 1. Give user turn;
 2. Show user options
-3. Take user choice(choice === number);
+3. Take user choice(choice === rock/paper/scissors);
 4. Make user wait;
 5. Give PC turn;
 6. Generate random PC choice;
