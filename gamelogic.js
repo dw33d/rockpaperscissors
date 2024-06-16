@@ -1,19 +1,18 @@
-
-
 // Making the game logic
 function playGame(){
     // Array for holdinng the words
     let pcChoice = ["rock", "paper", "scissors"];
+
     //Homo-sapien choice
     let homochoice = prompt("Insert choice (rock, paper, scissors)"); 
 
-
+    // Gets human choice, converts automatically to lower case(Can write ROCK/rock/Rock) and then returns it
     function gethomoChoice(){
         console.log(homochoice.toLowerCase())
         return homochoice.toLowerCase();
     }
 
-    // function for randomly choosing selection
+    // function for pc being able to randomlly pick something
     function getpcChoice(){
         const randomindex = Math.floor(Math.random()*pcChoice.length);
         var choice = pcChoice[randomindex];
@@ -21,6 +20,7 @@ function playGame(){
         return choice;
     }
 
+    // The game rounc logic
     function gameRound(homochoice, pcChoice){
         let humanScore = 0;
         let pcScore = 0;
@@ -56,14 +56,18 @@ function playGame(){
         }
     }
     
+    // Variables are the functions that collect the values for pc and humans and then runs them in the round logic
     let humanChoice = gethomoChoice();
     let compChoice = getpcChoice();
     
-    
+    // Calling the function for the game to work
     gameRound(humanChoice, compChoice);
+
+    // returning values just in case
     return;
 }
 
+// Calling the game function, which calls the round function for 5 rounds
 playGame();
 playGame();
 playGame();
