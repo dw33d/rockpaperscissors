@@ -1,45 +1,64 @@
-const rock = "rock";
-const paper = "paper";
-const scissors = "scissors";
-let humanChoice = window.prompt("Input your choice(rock, paper, scissors)"); 
-const computerOptions = [rock, paper, scissors];  // I want to store these variables in an array and have them selected at random 
+// Array for holdinng the words
+let pcChoice = ["rock", "paper", "scissors"];
+//Homo-sapien choice
+let homochoice = prompt("Insert choice (rock, paper, scissors)"); 
 
 let humanScore = 0;
+
 let pcScore = 0;
 
-
-// Will return the compute rcode based on random selection
-function getComputerChoice(){
-    return computerOptions[(Math.floor(Math.random() * computerOptions.length))]; // This should get a random option for me
+function gethomoChoice(){
+    console.log(homochoice.toLowerCase())
+    return homochoice.toLowerCase();
 }
 
-getComputerChoice();
-console.log(getComputerChoice());
-
-// WIll ask for human input and then log it to the console
-function getHumanChoice(){
-    return humanChoice;
+// function for randomly choosing selection
+function getpcChoice(){
+    const randomindex = Math.floor(Math.random()*pcChoice.length);
+    var choice = pcChoice[randomindex];
+    console.log(choice);
+    return choice;
 }
-console.log(getHumanChoice())
 
-function roundPlay(humanChoice, computerOptions){
+// Making the game logic
 
-    if(humanChoice === "rock" && computerOptions === "paper"){
-        console.log("It's a rock and a paper!")
-    } else {
-        console.log("Nah...not it")
+function gameRound(homochoice, pcChoice){
+
+    // In the case of a tie
+if (homochoice == pcChoice){
+    console.log("It's a tie");
+} else {
+    // In the case of one winning over the other
+    if (homochoice == "rock" && pcChoice == "paper"){
+        pcScore += 1;
+        console.log(`You lose: ${pcChoice} beats ${homochoice}`);
+    } 
+    if (homochoice == "rock" && pcChoice == "scissors"){
+        humanScore += 1;
+        console.log(`You win: ${homochoice} beats ${pcChoice}`);
     }
- 
-
+    if (homochoice == "paper" && pcChoice == "scissors"){
+        pcScore += 1;
+        console.log(`You lose: ${pcChoice} beats ${homochoice}`);
+    }
+    if (homochoice == "paper" && pcChoice == "rock"){
+        humanScore += 1;
+        console.log(`You win: ${homochoice} beats ${pcChoice}`);
+    }
+    if (homochoice == "scissors" && pcChoice == "rock"){
+        pcScore += 1;
+        console.log(`You lose: ${pcChoice} beats ${homochoice}`);
+    }
+    if (homochoice == "scissors" && pcChoice == "paper"){
+        humanScore += 1;
+        console.log(`You win: ${homochoice} beats ${pcChoice}`);
+    }
+}
 
 
 }
 
-const humanSelection = humanChoice;
-const computerSelection = computerOptions;
+let humanChoice = gethomoChoice();
+let compChoice = getpcChoice();
 
-roundPlay(humanSelection, computerSelection)
-
-function play(){
-    
-}
+gameRound(humanChoice, compChoice)
