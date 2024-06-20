@@ -68,8 +68,11 @@ function playGame(){
 }
 
 // Calling the game function, which calls the round function for 5 rounds
-// playGame();
-// playGame();
-// playGame();
-// playGame();
-// playGame();
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
+
+
+
