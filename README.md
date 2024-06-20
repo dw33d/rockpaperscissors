@@ -1,5 +1,10 @@
 # Rock Paper Scissors
 
+# TDOD
+
+1. Learn about git branching
+2. Add UI to the project
+
 # Pseudo-Code
 
 1. Give user turn;
